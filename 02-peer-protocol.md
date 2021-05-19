@@ -582,6 +582,7 @@ The receiving node:
     - MAY close the connection.
   - if `fee_satoshis` matches its previously sent `fee_range`:
     - SHOULD use `fee_satoshis` to sign and broadcast the final closing transaction
+    - SHOULD reply with a `closing_signed` with the same `fee_satoshis` value if it is different from its previously sent `fee_satoshis`
     - MAY close the connection.
   - otherwise, if `fee_satoshis` is greater than the base fee of the final
   commitment transaction as calculated in [BOLT #3](03-transactions.md#fee-calculation)
