@@ -843,6 +843,9 @@ A sending node:
   - MUST offer `amount_msat` greater than 0.
   - MUST NOT offer `amount_msat` below the receiving node's `htlc_minimum_msat`
   - MUST set `cltv_expiry` less than 500000000.
+  - if `option_wumbo_htlcs` is not negotiated:
+    - for channels with `chain_hash` identifying the Bitcoin blockchain:
+      - MUST set the four most significant bytes of `amount_msat` to 0.
   - if result would be offering more than the remote's
   `max_accepted_htlcs` HTLCs, in the remote commitment transaction:
     - MUST NOT add an HTLC.
